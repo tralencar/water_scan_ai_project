@@ -96,7 +96,7 @@ This direct connection between **visual brand** and **project mission** improves
 
 ## 🔹 Documentation Structure
 - **[Installation](installation.md)**: How to set up the environment.
-- **[Project Usage](usage.md)**: How to run the scraper.
+- **[Project Usage](usage.md)**: How to run the project.
 - **[Project Structure](project_structure.md)**: File structure explanation.
 - **[Methodology (CRISP-DM)](crisp_dm_stages.md)**: CRISP-DM methodology used in the project.
 - **[Project Modules](modules_index.md)**: Technical reference.

@@ -23,7 +23,9 @@ The full project documentation was built using **mkDocs** and is available at th
 > As a brand, it conveys **trust, innovation, and environmental responsibility**, positioning the solution as a **cutting-edge tool** for **water quality analysis and management**.
 > The logo effectively combines elements of **technology** and **sustainability**, emphasizing the project’s commitment to **solving global water challenges** while ensuring the **accuracy and reliability** of its data-driven insights.
 
-![Water Scan AI logo](https://raw.githubusercontent.com/tralencar/water_scan_ai_project/main/docs/assets/images/water_scan_ai_logo.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tralencar/water_scan_ai_project/main/docs/assets/images/water_scan_ai_logo.png" alt="Water Scan AI logo" width="300"/>
+</p>
 
 ### 1. Simplicity and Clear Connection with Water
 The central **water droplet icon** is universally recognized, instantly communicating the focus of the project on **water potability**. This symbol serves as a direct representation of the project’s mission to ensure access to safe drinking water.
@@ -102,8 +104,9 @@ This direct connection between **visual brand** and **project mission** improves
 
 ## 🔹 Documentation Structure
 
+- **[Home](https://tralencar.github.io/water_scan_ai_project/)**: Project overview
 - **[Installation](https://tralencar.github.io/water_scan_ai_project/installation/)**: How to set up the environment
-- **[Project Usage](https://tralencar.github.io/water_scan_ai_project/usage/)**: How to run the scraper
+- **[Project Usage](https://tralencar.github.io/water_scan_ai_project/usage/)**: How to run the project
 - **[Project Structure](https://tralencar.github.io/water_scan_ai_project/project_structure/)**: File structure explained
 - **[CRISP-DM Methodology](https://tralencar.github.io/water_scan_ai_project/crisp_dm_stages/)**: CRISP-DM stages applied to the project
 - **[Project Modules](https://tralencar.github.io/water_scan_ai_project/modules_index/)**: Technical reference
