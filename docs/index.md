@@ -17,7 +17,11 @@
 > As a brand, it conveys **trust, innovation, and environmental responsibility**, positioning the solution as a **cutting-edge tool** for **water quality analysis and management**.
 > The logo effectively combines elements of **technology** and **sustainability**, emphasizing the project’s commitment to **solving global water challenges** while ensuring the **accuracy and reliability** of its data-driven insights.
 
-![Water Scan AI logo](assets/images/water_scan_ai_logo.png)
+<!-- ![Water Scan AI logo](assets/images/water_scan_ai_logo.png) -->
+
+<p align="center">
+  <img src="assets/images/water_scan_ai_logo.png" alt="Water Scan AI logo" width="300"/>
+</p>
 
 ### 1. Simplicity and Clear Connection with Water
 The central **water droplet icon** is universally recognized, instantly communicating the focus of the project on **water potability**. This symbol serves as a direct representation of the project’s mission to ensure access to safe drinking water.
