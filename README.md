@@ -102,8 +102,9 @@ This direct connection between **visual brand** and **project mission** improves
 
 ## 🔹 Documentation Structure
 
+- **[Home](https://tralencar.github.io/water_scan_ai_project/)**: Project overview
 - **[Installation](https://tralencar.github.io/water_scan_ai_project/installation/)**: How to set up the environment
-- **[Project Usage](https://tralencar.github.io/water_scan_ai_project/usage/)**: How to run the scraper
+- **[Project Usage](https://tralencar.github.io/water_scan_ai_project/usage/)**: How to run the project
 - **[Project Structure](https://tralencar.github.io/water_scan_ai_project/project_structure/)**: File structure explained
 - **[CRISP-DM Methodology](https://tralencar.github.io/water_scan_ai_project/crisp_dm_stages/)**: CRISP-DM stages applied to the project
 - **[Project Modules](https://tralencar.github.io/water_scan_ai_project/modules_index/)**: Technical reference
