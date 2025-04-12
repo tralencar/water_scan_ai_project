@@ -15,14 +15,17 @@ site_url: https://tralencar.github.io/water_scan_ai_project/
 theme:
   name: material
   palette:
-    primary: orange
-    scheme: slate
+    - scheme: slate
+      # primary: '#007F7B'
+      # accent: '#007F7B'
   features:
     - navigation.instant
     - navigation.tracking
     - navigation.sections
     - toc.integrate
-  language: pt
+  language: en
+extra_css:
+  - styles/extra.css
 
 nav:
   - 🏠 Home: index.md
