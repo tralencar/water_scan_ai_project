@@ -21,15 +21,15 @@ Choosing CRISP-DM ensured organization, reproducibility, and alignment between t
 
 ### Project Objective
 
-Develop a **supervised classification** model capable of predicting whether a water sample is **potable (1)** or **not potable (0)** based on physicochemical variables.  
+Develop a **supervised classification** model capable of predicting whether a water sample is **potable (1)** or **not potable (0)** based on physicochemical variables.
 This solution aims to support public policies in sanitation, health, and environmental monitoring, contributing directly to access to safe water, as recommended by the World Health Organization (WHO).
 
 ---
 
 ### Context
 
-Access to safe drinking water is a **fundamental human right** and a crucial component of public health policies.  
-Water quality has a direct impact on population health, hospital costs, and economic productivity.  
+Access to safe drinking water is a **fundamental human right** and a crucial component of public health policies.
+Water quality has a direct impact on population health, hospital costs, and economic productivity.
 In many regions, improvements in supply systems and quality monitoring result in net economic benefits by reducing waterborne diseases.
 
 Based on a dataset of **3,276 observations** from various water sources, this project seeks to predict **water potability** using 9 measurable variables that reflect the chemical, physical, and microbiological characteristics of water.
@@ -64,10 +64,10 @@ Based on a dataset of **3,276 observations** from various water sources, this pr
 
 ### Practical Applications
 
-- Automation of water treatment plants  
-- Real-time monitoring via sensors  
-- Alert systems for public managers and municipalities  
-- Decision support in contexts of water crises or environmental disasters  
+- Automation of water treatment plants
+- Real-time monitoring via sensors
+- Alert systems for public managers and municipalities
+- Decision support in contexts of water crises or environmental disasters
 
 ---
 
@@ -75,7 +75,7 @@ Based on a dataset of **3,276 observations** from various water sources, this pr
 
 ### 2.1) Data Source
 
-The data used in this project was obtained from the [Dataset (Water Quality)](https://www.kaggle.com/datasets/adityakadiwal/water-potability/data) on Kaggle.  
+The data used in this project was obtained from the [Dataset (Water Quality)](https://www.kaggle.com/datasets/adityakadiwal/water-potability/data) on Kaggle.
 The dataset used in this project is provided in the file `water_potability.csv`, with an approximate size of 525 KB, containing **3,276 records** and **10 columns**, each representing a physicochemical variable or the water potability label.
 
 This dataset simulates samples from various water sources and aims to represent diverse water quality scenarios, based on parameters defined by regulatory agencies such as the **WHO (World Health Organization)** and the **EPA (United States Environmental Protection Agency)**.
@@ -117,7 +117,7 @@ This dataset simulates samples from various water sources and aims to represent 
 
 ### Identified Potential Challenges
 
-- **Missing values**: Some variables contain missing data, which requires imputation.  
+- **Missing values**: Some variables contain missing data, which requires imputation.
 - **Class imbalance**: The distribution between potable and non-potable classes may be uneven, affecting model performance.
 
 ---
@@ -128,7 +128,7 @@ This dataset simulates samples from various water sources and aims to represent 
 
 ![Dataset Overview](assets/images/crisp_dm/2.2.1%20-%20Visão%20geral%20do%20dataset.png)
 
-- The dataset contains **3,276 rows** and **10 columns**.  
+- The dataset contains **3,276 rows** and **10 columns**.
 - Each row represents a **water sample** with physicochemical measurements and the corresponding **potability label** (`0` or `1`).
 
 ---
@@ -137,8 +137,8 @@ This dataset simulates samples from various water sources and aims to represent 
 
 - **Missing values**: We can already observe `NaN` values in some columns such as `ph` and `Sulfate`, indicating the need for missing data handling during preprocessing.
 - **Data scale**: Some variables have **values with different orders of magnitude**:
-  - `Solids`, `Conductivity`, `Sulfate` → very high values  
-  - `Turbidity`, `ph`, `Organic_carbon` → lower values  
+  - `Solids`, `Conductivity`, `Sulfate` → very high values
+  - `Turbidity`, `ph`, `Organic_carbon` → lower values
   - This **emphasizes the importance of scaling/normalization** before modeling.
 - **Target variable (`Potability`)**: All 5 displayed samples have a value of `0`, suggesting that the sample might be **imbalanced** — which will be further investigated in the target distribution analysis.
 
@@ -152,8 +152,8 @@ The dataset overview reveals that the data is **well-structured**, but presents 
 
 ### Data Structure
 
-- The dataset has **3,276 rows** and **10 columns**.  
-- All predictor variables are of type `float64`.  
+- The dataset has **3,276 rows** and **10 columns**.
+- All predictor variables are of type `float64`.
 - The target variable (`Potability`) is of type `int64`, with binary values (0 or 1).
 
 
@@ -204,8 +204,8 @@ The image above, generated using the function `missingno.matrix(df)`, provides a
 
 ### Visual Interpretation
 
-- Columns with **white lines** represent **missing values**.  
-- Columns with **solid black fill** contain no missing values.  
+- Columns with **white lines** represent **missing values**.
+- Columns with **solid black fill** contain no missing values.
 - Three columns have missing data:
   - `ph` (column 0)
   - `Sulfate` (column 4)
@@ -226,8 +226,8 @@ The image above, generated using the function `missingno.matrix(df)`, provides a
 
 ### Key Insights
 
-- **No apparent visual correlation** between missing values across variables: each sample seems to have isolated gaps (not clustered).  
-- Columns `Hardness`, `Solids`, `Chloramines`, `Conductivity`, `Organic_carbon`, `Turbidity`, and `Potability` are **complete** (100% of values present).  
+- **No apparent visual correlation** between missing values across variables: each sample seems to have isolated gaps (not clustered).
+- Columns `Hardness`, `Solids`, `Chloramines`, `Conductivity`, `Organic_carbon`, `Turbidity`, and `Potability` are **complete** (100% of values present).
 - The missing data is **randomly distributed** across rows, which **suggests MCAR (Missing Completely At Random)** — meaning that the missingness is not dependent on observed data.
 
 ---
@@ -240,7 +240,7 @@ The image above, generated using the function `missingno.matrix(df)`, provides a
 
 ### Insights from the EDA Substage
 
-The visualization confirms the previous diagnosis: the dataset contains **missing values located in three specific columns**.  
+The visualization confirms the previous diagnosis: the dataset contains **missing values located in three specific columns**.
 Since the missing data is sparse and relatively low in two variables, and moderate in `Sulfate`, **median imputation** will be applied during preprocessing to preserve data volume and integrity.
 
 ---
@@ -255,7 +255,7 @@ The table above summarizes the main statistics of central tendency, dispersion, 
 
 ### Insights from the EDA Substage
 
-The descriptive statistics confirm the **need to handle** **missing values**.  
+The descriptive statistics confirm the **need to handle** **missing values**.
 Understanding the distribution and limits of variables also helps guide decisions on **feature engineering** and attribute selection in the modeling pipeline.
 
 ---
@@ -275,7 +275,7 @@ The target variable `Potability` indicates whether the water is **potable (1)** 
   - Class `1` (Potable): approximately **1,200 samples**
 
 #### Approximate Proportions:
-- Class 0 (Not Potable): ~61%  
+- Class 0 (Not Potable): ~61%
 - Class 1 (Potable): ~39%
 
 
@@ -294,18 +294,18 @@ The target variable `Potability` indicates whether the water is **potable (1)** 
 ### Recommended Strategies
 
 1. **Balancing with SMOTE (Synthetic Minority Over-sampling Technique)**
-   - Generates synthetic samples of the minority class  
-   - Preserves the full dataset and improves generalization  
-   - Ideal before training the model  
+   - Generates synthetic samples of the minority class
+   - Preserves the full dataset and improves generalization
+   - Ideal before training the model
 
 2. **Additional alternatives (if needed):**
-   - Use **Class Weights** in models like `LogisticRegression`, `RandomForestClassifier`, and `XGBoost`  
+   - Use **Class Weights** in models like `LogisticRegression`, `RandomForestClassifier`, and `XGBoost`
 
 ---
 
 ### Insights from the EDA Substage
 
-The visualization confirms the **need to handle class imbalance**.  
+The visualization confirms the **need to handle class imbalance**.
 To ensure that the model learns fairly from both classes, the use of **SMOTE (Synthetic Minority Over-sampling Technique)** will be essential in the upcoming preprocessing and modeling stages.
 
 ---
@@ -332,8 +332,8 @@ The `Potability` variable represents the model's **target class**, indicating wh
 
 ### Interpretation
 
-- There is a **moderate imbalance** between the classes.  
-- The majority class (`0`, not potable) accounts for approximately **61%** of the samples, while the minority class (`1`, potable) represents about **39%**.  
+- There is a **moderate imbalance** between the classes.
+- The majority class (`0`, not potable) accounts for approximately **61%** of the samples, while the minority class (`1`, potable) represents about **39%**.
 - Although not an extreme imbalance, it **can negatively affect model performance**, especially in recall and F1-score for the minority class (`1` – potable water).
 
 ---
@@ -348,7 +348,7 @@ The `Potability` variable represents the model's **target class**, indicating wh
 
 ### Insights from the EDA Substage
 
-The analysis confirms the class imbalance, with a predominance of non-potable samples.  
+The analysis confirms the class imbalance, with a predominance of non-potable samples.
 The use of **class rebalancing techniques** is recommended to avoid prediction bias and ensure a fair and robust model for detecting **potable water**, which is the class of greatest social and public health interest.
 
 ---
@@ -357,15 +357,15 @@ The use of **class rebalancing techniques** is recommended to avoid prediction b
 
 ![Dataset Overview](assets/images/crisp_dm/2.2.7%20-%20Histogramas%20para%20entender%20a%20distribuição%20das%20variáveis.png)
 
-The histograms provide a clear view of the **statistical distribution of continuous variables**.  
+The histograms provide a clear view of the **statistical distribution of continuous variables**.
 This step is essential to guide decisions on normalization, transformation, and model selection.
 
 ---
 
 ### General Observations
 
-- Most variables show an **approximately normal or symmetric distribution**.  
-- The **absence of significant skewness** indicates that many algorithms, such as Logistic Regression, KNN, and Random Forest, should perform well without additional transformations.  
+- Most variables show an **approximately normal or symmetric distribution**.
+- The **absence of significant skewness** indicates that many algorithms, such as Logistic Regression, KNN, and Random Forest, should perform well without additional transformations.
 - Variables do not appear to have many extreme outliers, reducing the need for aggressive treatments.
 
 ---
@@ -388,8 +388,8 @@ This step is essential to guide decisions on normalization, transformation, and 
 
 ### Insights from the EDA Substage
 
-The variable distributions are suitable for direct use in Machine Learning models.  
-With **simple standardization**, the data will be ready for algorithms that assume normality.  
+The variable distributions are suitable for direct use in Machine Learning models.
+With **simple standardization**, the data will be ready for algorithms that assume normality.
 This analysis reinforces that the dataset is **statistically stable and well-behaved**, with minimal need for complex transformations.
 
 ---
@@ -420,8 +420,8 @@ In this step, boxplots were used to **compare the distribution of continuous var
 
 ### About the Outliers
 
-- All variables present **visible outliers**.  
-- Most outliers are **above the upper limit (Q3 + 1.5 * IQR)**.  
+- All variables present **visible outliers**.
+- Most outliers are **above the upper limit (Q3 + 1.5 * IQR)**.
 - The outliers are not extreme enough to compromise modeling, but it is worth considering:
   - **Keeping the outliers**, if plausible (especially for environmental variables).
   - **Robust transformations**, such as `RobustScaler`, if using sensitive models.
@@ -430,7 +430,7 @@ In this step, boxplots were used to **compare the distribution of continuous var
 
 ### Insights from the EDA Substage
 
-The boxplot analysis shows that the dataset contains **outliers in all variables**, but **without severe impact on class separation**.  
+The boxplot analysis shows that the dataset contains **outliers in all variables**, but **without severe impact on class separation**.
 Differences between classes are **subtle**, meaning the model will need to **combine multiple variables** to achieve good performance — reinforcing the value of **non-linear models** such as **Random Forest** or **XGBoost**.
 
 ---
@@ -445,7 +445,7 @@ The heatmap shown displays **Pearson correlation coefficients** between all vari
 
 ### General Observations
 
-- Most correlations are centered around **0**, indicating that variables are **weakly correlated** with one another.  
+- Most correlations are centered around **0**, indicating that variables are **weakly correlated** with one another.
 - This is advantageous for tree-based models (like Random Forest and XGBoost), which are not sensitive to multicollinearity.
 
 ---
@@ -497,7 +497,7 @@ There is no evidence of multicollinearity, and all variables can be kept in the 
 
 ### Insights from the EDA Substage
 
-The correlation map shows that the dataset is **statistically stable**, with no problematic collinearity, but also **no variables strongly correlated with water potability**.  
+The correlation map shows that the dataset is **statistically stable**, with no problematic collinearity, but also **no variables strongly correlated with water potability**.
 This reinforces the importance of using **non-linear and robust models**, as well as combining variables during feature engineering.
 
 ---
@@ -507,8 +507,8 @@ This reinforces the importance of using **non-linear and robust models**, as wel
 ![Dataset Overview](assets/images/crisp_dm/2.2.10%20-%20KDE%20plots%20(densidade)%20separados%20por%20classe.png)
 
 In this step, **Kernel Density Estimation (KDE)** plots were used to **visually compare the distribution of continuous variables** between the two classes of the target variable `Potability`:
-- **Potable (`1`)** – blue line  
-- **Not Potable (`0`)** – orange line  
+- **Potable (`1`)** – blue line
+- **Not Potable (`0`)** – orange line
 
 ---
 
@@ -530,8 +530,8 @@ In this step, **Kernel Density Estimation (KDE)** plots were used to **visually 
 
 ### General Interpretation
 
-- The variables **individually do not provide strong class separability**.  
-- However, small differences combined across multiple variables may help a non-linear model to **identify effective decision boundaries**.  
+- The variables **individually do not provide strong class separability**.
+- However, small differences combined across multiple variables may help a non-linear model to **identify effective decision boundaries**.
 - **Similar distributions** reinforce that this is a **non-trivial problem**, requiring algorithms capable of capturing complex patterns.
 
 ---
@@ -555,7 +555,7 @@ Os KDE plots confirmam que as variáveis **não são fortemente discriminatória
 
 ### Insights from the EDA Substage
 
-The KDE plots confirm that the variables **are not strongly discriminatory in isolation**, but **can be valuable when combined**.  
+The KDE plots confirm that the variables **are not strongly discriminatory in isolation**, but **can be valuable when combined**.
 Modeling should explore **multivariate relationships** and apply algorithms capable of **capturing non-linear interactions**.
 
 ---
@@ -564,27 +564,27 @@ Modeling should explore **multivariate relationships** and apply algorithms capa
 
 ### 3.1) Handling Missing Values
 
-The first step in data preparation involved identifying and handling missing values in the dataset.  
-The presence of NaN values can negatively impact machine learning model performance and distort statistical analyses and metrics.  
+The first step in data preparation involved identifying and handling missing values in the dataset.
+The presence of NaN values can negatively impact machine learning model performance and distort statistical analyses and metrics.
 An initial check for missing values per column was performed using the command `df.isnull().sum()`.
 
-To address this issue, **median imputation** was applied to each numerical column using the method `df.fillna(df.median(), inplace=True)`.  
-This approach is robust against outliers and helps preserve the overall data distribution.  
+To address this issue, **median imputation** was applied to each numerical column using the method `df.fillna(df.median(), inplace=True)`.
+This approach is robust against outliers and helps preserve the overall data distribution.
 After imputation, it was verified that no missing values remained in the dataset.
 
 ### 3.2) Splitting the Data into Training and Testing Sets
 
 With the dataset now complete, the data was split into independent variables (X) and the target variable (y), where the target is the `Potability` column, indicating whether the water is potable (1) or not (0).
 
-The `train_test_split` function from the sklearn library was then used to divide the data into training (80%) and testing (20%) sets.  
-The parameter `stratify=y` was used to preserve the original class proportions (potable vs. non-potable) in both sets, ensuring a representative split.  
+The `train_test_split` function from the sklearn library was then used to divide the data into training (80%) and testing (20%) sets.
+The parameter `stratify=y` was used to preserve the original class proportions (potable vs. non-potable) in both sets, ensuring a representative split.
 Additionally, a seed (`random_state=42`) was set for reproducibility.
 
 ### 3.3) Applying SMOTE
 
 Due to the imbalance in the target variable — that is, an unequal distribution between classes — the **SMOTE (Synthetic Minority Over-sampling Technique)** method was applied to generate synthetic samples of the minority class in the training set.
 
-Using SMOTE allows for training more robust models, minimizing bias toward the majority class and improving performance on imbalance-sensitive metrics such as **recall** and **F1-score**.  
+Using SMOTE allows for training more robust models, minimizing bias toward the majority class and improving performance on imbalance-sensitive metrics such as **recall** and **F1-score**.
 SMOTE was applied only to the training data (`X_train`, `y_train`) to avoid data leakage and preserve the integrity of the test evaluation.
 
 ---
@@ -669,21 +669,21 @@ Each study was optimized for 100 iterations (`n_trials=100`), and the best sets 
 
 After optimization, the Random Forest and XGBoost models were retrained using the best parameters found. Both were evaluated using the following metrics:
 
-* Accuracy  
-* Precision, Recall, and F1-Score per class  
-* Weighted and macro averages for overall comparison  
+* Accuracy
+* Precision, Recall, and F1-Score per class
+* Weighted and macro averages for overall comparison
 
 | Model          | Accuracy | Precision (Class 1) | Recall (Class 1) | F1-Score (Class 1) |
 |----------------|----------|----------------------|-------------------|---------------------|
 | Random Forest  | **0.67** | 0.59                 | 0.52              | 0.55                |
 | XGBoost        | 0.66     | 0.57                 | 0.54              | 0.56                |
 
-It is observed that the Random Forest model achieved higher overall accuracy (0.67) and better precision when classifying samples as potable.  
+It is observed that the Random Forest model achieved higher overall accuracy (0.67) and better precision when classifying samples as potable.
 Although XGBoost achieved a slightly better recall for class 1, Random Forest strikes a better balance between precision and recall, resulting in a competitive F1-Score.
 
 ---
 
 ### 5.2) Best Model Selection
 
-Based on performance comparison, the **Random Forest model optimized with Optuna** was chosen as the final model for this project.  
+Based on performance comparison, the **Random Forest model optimized with Optuna** was chosen as the final model for this project.
 Despite the close results, its greater ability to generalize to the minority class makes it more suitable for the project’s goal: to identify potable water samples with greater confidence.

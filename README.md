@@ -2,61 +2,62 @@
 
 The full project documentation was built using **mkDocs** and is available at the official site: [Water Scan AI](https://tralencar.github.io/water_scan_ai/).
 
-## Version  
+## Version
 `version = "1.0.1"`
 
-## 🔹 About the Project  
+## 🔹 About the Project
 💧 **Water Scan AI** is a Machine Learning project that classifies water potability using preprocessing techniques, class balancing, hyperparameter optimization, and model versioning with MLflow.
 
-- **Project Name**: `water_scan_ai`  
-- **Author**: `tralencar`  
-- **Version**: `1.0.1`  
-- **License**: `MIT`  
-- **Keywords**: `quality`, `water`  
+- **Project Name**: `water_scan_ai`
+- **Author**: `tralencar`
+- **Version**: `1.0.1`
+- **License**: `MIT`
+- **Keywords**: `quality`, `water`
 - **Data Source**: [Dataset (Water Quality)](https://www.kaggle.com/datasets/adityakadiwal/water-potability/data) from Kaggle.
 
 ---
 
 ## 🔹 Features
 
-✅ Programming Language: `Python`  
-✅ Structured with the `Factory Method Pattern` for trainer creation  
-✅ Implements `Facade Pattern` in the logging module using MLflow (MLFlowLogger)  
-✅ Implements `Singleton Pattern` for managing entries in the MLflow Registry  
-✅ Hyperparameter optimization using `Optuna`  
-✅ Class balancing with `SMOTE` (imblearn)  
-✅ Experiment logging and tracking with `MLflow`  
-✅ Model registration and versioning with `MLflow Model Registry`  
-✅ Metrics and artifacts visualization with `matplotlib` and `MLflow`  
-✅ Evaluation using `scikit-learn` metrics  
-✅ Support for `Random Forest` models, with structure ready for `XGBoost` and `LightGBM`  
-✅ Code quality enforcement using `Pre-commit`, `Ruff`, `Black`, `Flake8`, `Isort`  
-✅ Task automation with `Makefile`  
-✅ Semantic versioning with `bump2version`  
-✅ Automated testing with `Pytest` + `Pytest-Cov`  
-✅ Auto-generated documentation with `MkDocs` + `MkDocs Material`  
-✅ Automatic formatting and linting with `Ruff`, `Black`, and `Isort`  
-✅ Git hooks support for code validation using `Pre-commit`  
-✅ Code organized with `Singleton Pattern` to manage model registry  
-✅ Modular and reusable architecture using `Poetry` for dependency management  
-✅ **Continuous Integration (CI)** via `GitHub Actions`, with the following steps:  
-🔹 - Automated quality checks on every `push` or `pull request` to the `main` branch  
-🔹 - Python environment setup with `Poetry`  
-🔹 - Automatic installation of development dependencies  
-🔹 - Execution of `make quality` rule to ensure code standardization  
+✅ Programming Language: `Python`
+✅ Structured with the `Factory Method Pattern` for trainer creation
+✅ Implements `Facade Pattern` in the logging module using MLflow (MLFlowLogger)
+✅ Implements `Singleton Pattern` for managing entries in the MLflow Registry
+✅ Hyperparameter optimization using `Optuna`
+✅ Class balancing with `SMOTE` (imblearn)
+✅ Experiment logging and tracking with `MLflow`
+✅ Model registration and versioning with `MLflow Model Registry`
+✅ Metrics and artifacts visualization with `matplotlib` and `MLflow`
+✅ Evaluation using `scikit-learn` metrics
+✅ Support for `Random Forest` models, with structure ready for `XGBoost` and `LightGBM`
+✅ Code quality enforcement using `Pre-commit`, `Ruff`, `Black`, `Flake8`, `Isort`
+✅ Task automation with `Makefile`
+✅ Semantic versioning with `bump2version`
+✅ Automated testing with `Pytest` + `Pytest-Cov`
+✅ Auto-generated documentation with `MkDocs` + `MkDocs Material`
+✅ Automatic formatting and linting with `Ruff`, `Black`, and `Isort`
+✅ Git hooks support for code validation using `Pre-commit`
+✅ Code organized with `Singleton Pattern` to manage model registry
+✅ Modular and reusable architecture using `Poetry` for dependency management
+✅ **Continuous Integration (CI)** via `GitHub Actions`, with the following steps:
+🔹 - Automated quality checks on every `push` or `pull request` to the `main` branch
+🔹 - Python environment setup with `Poetry`
+🔹 - Automatic installation of development dependencies
+🔹 - Execution of `make quality` rule to ensure code standardization
 
 ---
 
+
 ## 🔹 Documentation Structure
 
-- **[Installation](https://tralencar.github.io/water_scan_ai/installation/)**: How to set up the environment  
-- **[Project Usage](https://tralencar.github.io/water_scan_ai/usage/)**: How to run the scraper  
-- **[Project Structure](https://tralencar.github.io/water_scan_ai/project_structure/)**: File structure explained  
-- **[CRISP-DM Methodology](https://tralencar.github.io/water_scan_ai/crisp_dm_stages/)**: CRISP-DM stages applied to the project  
-- **[Project Modules](https://tralencar.github.io/water_scan_ai/modules_index/)**: Technical reference  
-- **[Contributing](https://tralencar.github.io/water_scan_ai/contributing/)**: How to contribute  
-- **[Tests](https://tralencar.github.io/water_scan_ai/tests/)**: Testing framework used  
-- **[Changelog](https://tralencar.github.io/water_scan_ai/changelog/)**: Version history  
+- **[Installation](https://tralencar.github.io/water_scan_ai/installation/)**: How to set up the environment
+- **[Project Usage](https://tralencar.github.io/water_scan_ai/usage/)**: How to run the scraper
+- **[Project Structure](https://tralencar.github.io/water_scan_ai/project_structure/)**: File structure explained
+- **[CRISP-DM Methodology](https://tralencar.github.io/water_scan_ai/crisp_dm_stages/)**: CRISP-DM stages applied to the project
+- **[Project Modules](https://tralencar.github.io/water_scan_ai/modules_index/)**: Technical reference
+- **[Contributing](https://tralencar.github.io/water_scan_ai/contributing/)**: How to contribute
+- **[Tests](https://tralencar.github.io/water_scan_ai/tests/)**: Testing framework used
+- **[Changelog](https://tralencar.github.io/water_scan_ai/changelog/)**: Version history
 
 ---
 
@@ -64,10 +65,10 @@ The full project documentation was built using **mkDocs** and is available at th
 
 Before installing the project, make sure your environment meets the following requirements:
 
-- **Python** `>=3.9, <4.0`  
-- **Git** installed  
-- **Poetry** for dependency management  
-- **Make** (Makefile support is required)  
+- **Python** `>=3.9, <4.0`
+- **Git** installed
+- **Poetry** for dependency management
+- **Make** (Makefile support is required)
 
 ---
 

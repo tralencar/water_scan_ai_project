@@ -2,11 +2,11 @@
 
 💧 **Water Scan AI** is a Machine Learning project that classifies water potability using preprocessing techniques, class balancing, hyperparameter optimization, and model versioning with MLflow.
 
-- **Project Name**: `water_scan_ai`  
-- **Author**: `tralencar`  
-- **Version**: "1.0.1"  
-- **License**: `MIT`  
-- **Keywords**: `quality`, `water`  
+- **Project Name**: `water_scan_ai`
+- **Author**: `tralencar`
+- **Version**: "1.0.1"
+- **License**: `MIT`
+- **Keywords**: `quality`, `water`
 - **Data Source**: [Dataset (Water Quality)](https://www.kaggle.com/datasets/adityakadiwal/water-potability/data) from Kaggle.
 
 ## 🔹 Features
@@ -38,11 +38,11 @@
 🔹 - Execution of `make quality` rule to ensure code standardization <br>
 
 ## 🔹 Documentation Structure
-- **[Installation](installation.md)**: How to set up the environment.  
-- **[Project Usage](usage.md)**: How to run the scraper.  
-- **[Project Structure](project_structure.md)**: File structure explanation.  
-- **[Methodology (CRISP-DM)](crisp_dm_stages.md)**: CRISP-DM methodology used in the project.  
-- **[Project Modules](modules_index.md)**: Technical reference.  
-- **[Contributing](contributing.md)**: How to contribute to the project.  
-- **[Tests](tests.md)**: Tests used in the project.  
-- **[Changelog](changelog.md)**: Version history.  
+- **[Installation](installation.md)**: How to set up the environment.
+- **[Project Usage](usage.md)**: How to run the scraper.
+- **[Project Structure](project_structure.md)**: File structure explanation.
+- **[Methodology (CRISP-DM)](crisp_dm_stages.md)**: CRISP-DM methodology used in the project.
+- **[Project Modules](modules_index.md)**: Technical reference.
+- **[Contributing](contributing.md)**: How to contribute to the project.
+- **[Tests](tests.md)**: Tests used in the project.
+- **[Changelog](changelog.md)**: Version history.

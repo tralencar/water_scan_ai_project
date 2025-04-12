@@ -5,12 +5,12 @@ Contains two main classes:
 
 ### DataPipeline
 Responsible for:
-- Loading the CSV dataset  
+- Loading the CSV dataset
 - Handling missing values
 
 ### DataPreprocessor
 Responsible for:
-- Train/test split using `train_test_split`  
+- Train/test split using `train_test_split`
 - Data balancing using SMOTE
 
 ### ::: src.data_pipeline

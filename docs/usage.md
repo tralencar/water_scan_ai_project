@@ -53,10 +53,10 @@ To run code quality checks using pre-commit, execute:
 
 This command runs:
 
-* Black (automatic code formatting)  
-* Isort (import sorting)  
-* Flake8 (code linting)  
-* Ruff (optimized linter)  
+* Black (automatic code formatting)
+* Isort (import sorting)
+* Flake8 (code linting)
+* Ruff (optimized linter)
 * Pre-commit hooks to prevent broken commits
 
 If you prefer to run it manually:
@@ -133,8 +133,8 @@ To run unit tests and check code coverage, execute:
 
 This command:
 
-* Installs development dependencies  
-* Runs `pytest` with a minimum required coverage of 27%  
+* Installs development dependencies
+* Runs `pytest` with a minimum required coverage of 27%
 * Displays a coverage report
 
 📌 Notes: <br>

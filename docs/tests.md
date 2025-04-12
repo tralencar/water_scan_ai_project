@@ -15,10 +15,10 @@ The tests are organized in the `tests/` directory, separated by component:
 
 ## 🔹 Tools Used
 
-* `pytest`: main testing framework  
-* `pytest-cov`: code coverage analysis  
-* `monkeypatch`: mocking of external functions and methods  
-* `tmp_path fixture`: creation of temporary test files  
+* `pytest`: main testing framework
+* `pytest-cov`: code coverage analysis
+* `monkeypatch`: mocking of external functions and methods
+* `tmp_path fixture`: creation of temporary test files
 
 ## 🔹 Fixtures (conftest.py)
 
@@ -30,31 +30,31 @@ The `conftest.py` file defines reusable data and configuration for multiple test
 
 * `test_pipeline_load_and_clean` <br>
 🧪 Tests reading a CSV and handling missing values. <br>
-📝 **Note:**  
+📝 **Note:**
 Simulates a `.csv` file with missing values and checks whether the `fillna(median)` method in `DataPipeline` correctly removes NaNs. Ensures the pipeline starts with clean data — essential to avoid model errors.
 
 * `test_data_preprocessing_split_and_smote` <br>
 🧪 Verifies train/test split and SMOTE application. <br>
-📝 **Note:**  
+📝 **Note:**
 Checks that the data is split with stratification (maintaining the `Potability` proportion) and that SMOTE correctly balances the classes. This guarantees balanced training and prevents bias toward the majority class.
 
 ✅ 2) `test_trainer_factory.py` <br>
 
 * `test_create_trainer_success` <br>
 🧪 Tests successful creation of a RandomForest trainer. <br>
-📝 **Note:**  
+📝 **Note:**
 Verifies that the factory returns the correct instance (`RandomForestTrainer`) when receiving `random_forest` as the input. A key test for validating the modularity of the system through the Factory pattern.
 
 * `test_create_trainer_invalid_model` <br>
 ⚠️ Tests error handling when providing an invalid model. <br>
-📝 **Note:**  
+📝 **Note:**
 Ensures the system raises a `ValueError` when an unsupported model type is passed. Important for protecting the API from misuse and anticipating production failures.
 
 ✅ 3) `test_model_trainer.py` <br>
 
 * `test_optuna_fake` <br>
 🧪 Tests Optuna optimization execution using monkeypatch, without running a real session. <br>
-📝 **Note:**  
+📝 **Note:**
 Uses `monkeypatch` to replace the `objective()` method and force a fixed return (e.g., `0.9`). This enables testing the Optuna optimization flow without running the actual training or MLflow logging. Ideal for reducing execution time and safely simulating real environments.
 
 ## 🔹 Running the Tests

@@ -4,11 +4,11 @@
 
 💧 **Water Scan AI** is a Machine Learning project that classifies water potability using preprocessing techniques, class balancing, hyperparameter optimization, and model versioning with MLflow.
 
-- **Project Name**: `water_scan_ai`  
-- **Author**: `tralencar`  
-- **Version**: "1.0.1"  
-- **License**: `MIT`  
-- **Keywords**: `quality`, `water`  
+- **Project Name**: `water_scan_ai`
+- **Author**: `tralencar`
+- **Version**: "1.0.1"
+- **License**: `MIT`
+- **Keywords**: `quality`, `water`
 - **Data Source**: [Dataset (Water Quality)](https://www.kaggle.com/datasets/adityakadiwal/water-potability/data) from Kaggle.
 
 ---
@@ -17,9 +17,9 @@
 
 Before installing the project, make sure your environment meets the following requirements:
 
-- **Python** `>=3.9, <4.0`  
-- **Git** installed  
-- **Poetry** for dependency management  
+- **Python** `>=3.9, <4.0`
+- **Git** installed
+- **Poetry** for dependency management
 - **Make** (Makefile support is included in dependencies)
 
 ---
@@ -102,14 +102,14 @@ To ensure everything was installed correctly, run:
 
 To ensure secure model versioning, the `Water Scan AI` project uses **MinIO** as the **artifact store for MLflow**, simulating an S3-compatible interface. Model and metadata persistence is handled by:
 
-* MinIO (S3-like storage for artifacts such as `.pkl`, `.onnx` models, images, metrics, etc.)  
+* MinIO (S3-like storage for artifacts such as `.pkl`, `.onnx` models, images, metrics, etc.)
 * PostgreSQL (backend store for logs, parameters, and experiment runs)
 
 ---
 
 ### 🔹 Creating an Access Key in MinIO
 
-Access the MinIO dashboard (locally at `http://localhost:9001`) and create a new access key in the **Access Keys** menu.  
+Access the MinIO dashboard (locally at `http://localhost:9001`) and create a new access key in the **Access Keys** menu.
 Below is an example of the MinIO access screen and the corresponding environment variable configuration:
 
 ![MinIO and MLflow Configuration](assets/images/minio_configuration_access.png)
@@ -128,9 +128,9 @@ Open the MinIO interface, go to the **Buckets** section in the sidebar, and clic
 
 Follow these steps according to the image:
 
-* Access the MinIO admin panel at the local link  
-* In the sidebar, click **Buckets**  
-* Click the **Create Bucket** button (as highlighted below)  
+* Access the MinIO admin panel at the local link
+* In the sidebar, click **Buckets**
+* Click the **Create Bucket** button (as highlighted below)
 * Name the bucket `mlflow` (or another name, but be sure it matches the `artifacts-destination` variable defined in `docker-compose.yml`)
 
 ![Creating the bucket in MinIO - Step 1](assets/images/minio_configuration_buckets_part_1.png)
@@ -143,9 +143,9 @@ Suggested name: `mlflow`
 
 📌 Notes (Important rules for bucket naming):
 
-* Must be in lowercase  
-* No spaces  
-* Avoid special characters  
+* Must be in lowercase
+* No spaces
+* Avoid special characters
 * Use a simple name like `mlflow`, `experiments`, `models`, etc.
 
 ⚠️ Make sure the bucket name exactly matches the `artifacts-destination` value and the bucket name configured in the `tracking_server` of `docker-compose.yml`.
@@ -155,4 +155,3 @@ Suggested name: `mlflow`
 ---
 
 [⬅ Back to Home Page](index.md)
-

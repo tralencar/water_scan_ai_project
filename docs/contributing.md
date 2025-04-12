@@ -1,8 +1,8 @@
 # Contributing to Arxiv Scraping
 
 ## 🔹 Contribution Requirements
-- Follow **PEP 8** guidelines  
-- Run `pre-commit` before submitting PRs  
+- Follow **PEP 8** guidelines
+- Run `pre-commit` before submitting PRs
 
 ---
 
