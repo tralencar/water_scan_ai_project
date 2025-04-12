@@ -1,0 +1,1696 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Water Scan AI Project to Identify Water Quality">
+      
+      
+        <meta name="author" content="tralencar">
+      
+      
+        <link rel="canonical" href="https://tralencar.github.io/water_scan_ai_project/crisp_dm_stages/">
+      
+      
+        <link rel="prev" href="../project_structure/">
+      
+      
+        <link rel="next" href="../modules_index/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>🧠 Methodology Used (CRISP-DM) - Water Scan AI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Water Scan AI" class="md-header__button md-logo" aria-label="Water Scan AI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Water Scan AI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🧠 Methodology Used (CRISP-DM)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tralencar/water_scan_ai_project" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    water_scan_ai_project
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Water Scan AI" class="md-nav__button md-logo" aria-label="Water Scan AI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Water Scan AI
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tralencar/water_scan_ai_project" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    water_scan_ai_project
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🏠 Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🚀 Project Usage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project_structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📂 Project Structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧠 Methodology Used (CRISP-DM)
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    📦 Modules
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            📦 Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📦📑 Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📦🏗️ Main
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📦📝 data_pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📦📜 mlflow_logger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module_4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📦🔄 model_registry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module_5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📦⚡ model_trainer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module_6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📦🌐 trainer_factory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🤝 Contribution
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧪 Tests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🕰️ Version History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction">Introduction</h1>
+<p>In this water potability classification project, the <strong>CRISP-DM (Cross Industry Standard Process for Data Mining)</strong> methodology was adopted due to its well-defined, iterative structure and its wide recognition in the data science industry.</p>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/crisp_dm_introduction.png" /></p>
+<p>CRISP-DM guided all stages of the project according to the following:</p>
+<ul>
+<li>1) <strong>Business Understanding:</strong> The main goal was defined as predicting water potability based on physicochemical parameters.</li>
+<li>2) <strong>Data Understanding:</strong> An exploratory analysis was conducted to understand the structure, quality, and imbalance of the dataset.</li>
+<li>3) <strong>Data Preparation:</strong> Included handling missing values, applying SMOTE, and splitting the data into training and testing sets.</li>
+<li>4) <strong>Modeling:</strong> Models such as Random Forest and XGBoost were optimized using Optuna.</li>
+<li>5) <strong>Evaluation:</strong> Model performance was compared using metrics like accuracy, recall, and F1-score.</li>
+<li>6) <strong>Deployment:</strong> The best-performing model was registered in the MLflow Registry and is ready for production use.</li>
+</ul>
+<p>Choosing CRISP-DM ensured organization, reproducibility, and alignment between technical and business objectives, making it ideal for structured data science projects like this one.</p>
+<hr />
+<h1 id="part-1-business-understanding-problem-water-potability-prediction">Part 1) Business Understanding (Problem): Water Potability Prediction</h1>
+<h3 id="project-objective">Project Objective</h3>
+<p>Develop a <strong>supervised classification</strong> model capable of predicting whether a water sample is <strong>potable (1)</strong> or <strong>not potable (0)</strong> based on physicochemical variables.
+This solution aims to support public policies in sanitation, health, and environmental monitoring, contributing directly to access to safe water, as recommended by the World Health Organization (WHO).</p>
+<hr />
+<h3 id="context">Context</h3>
+<p>Access to safe drinking water is a <strong>fundamental human right</strong> and a crucial component of public health policies.
+Water quality has a direct impact on population health, hospital costs, and economic productivity.
+In many regions, improvements in supply systems and quality monitoring result in net economic benefits by reducing waterborne diseases.</p>
+<p>Based on a dataset of <strong>3,276 observations</strong> from various water sources, this project seeks to predict <strong>water potability</strong> using 9 measurable variables that reflect the chemical, physical, and microbiological characteristics of water.</p>
+<hr />
+<h3 id="variable-description">Variable Description</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+<th>Recommended Range / Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ph</code></td>
+<td>Measures the acid-base balance of water. Ideal range is 6.5 to 8.5.</td>
+<td>6.5 – 8.5 (WHO)</td>
+</tr>
+<tr>
+<td><code>Hardness</code></td>
+<td>Concentration of calcium and magnesium salts (hardness).</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>Solids</code></td>
+<td>Total Dissolved Solids (TDS). Indicates mineralization level.</td>
+<td>&lt; 500 mg/L (ideal), max. 1000</td>
+</tr>
+<tr>
+<td><code>Chloramines</code></td>
+<td>Common disinfectant agent used in potable water.</td>
+<td>≤ 4 mg/L</td>
+</tr>
+<tr>
+<td><code>Sulfate</code></td>
+<td>Naturally occurring substance found in various environments.</td>
+<td>3 to 30 mg/L (normal), up to 1000</td>
+</tr>
+<tr>
+<td><code>Conductivity</code></td>
+<td>Related to the amount of dissolved ions.</td>
+<td>≤ 400 μS/cm</td>
+</tr>
+<tr>
+<td><code>Organic_carbon</code></td>
+<td>Represents natural or synthetic organic matter present in the water.</td>
+<td>&lt; 4 mg/L</td>
+</tr>
+<tr>
+<td><code>Trihalomethanes</code></td>
+<td>Byproducts of chlorine treatment.</td>
+<td>≤ 80 ppm</td>
+</tr>
+<tr>
+<td><code>Turbidity</code></td>
+<td>Opacity caused by suspended particles.</td>
+<td>≤ 5 NTU</td>
+</tr>
+<tr>
+<td><code>Potability</code></td>
+<td><strong>Target variable</strong>. Indicates if the water is potable (1) or not (0).</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="problem-nature">Problem Nature</h3>
+<ul>
+<li><strong>Type:</strong> Binary Classification (<code>0 = Not Potable</code>, <code>1 = Potable</code>)</li>
+<li><strong>Target Variable:</strong> <code>Potability</code></li>
+<li><strong>Predictor Variables:</strong> 9 continuous variables related to water quality</li>
+<li><strong>Potential Challenge:</strong> Class imbalance</li>
+</ul>
+<hr />
+<h3 id="practical-applications">Practical Applications</h3>
+<ul>
+<li>Automation of water treatment plants</li>
+<li>Real-time monitoring via sensors</li>
+<li>Alert systems for public managers and municipalities</li>
+<li>Decision support in contexts of water crises or environmental disasters</li>
+</ul>
+<hr />
+<h1 id="part-2-data-understanding">Part 2) Data Understanding</h1>
+<h3 id="21-data-source">2.1) Data Source</h3>
+<p>The data used in this project was obtained from the <a href="https://www.kaggle.com/datasets/adityakadiwal/water-potability/data">Dataset (Water Quality)</a> on Kaggle.
+The dataset used in this project is provided in the file <code>water_potability.csv</code>, with an approximate size of 525 KB, containing <strong>3,276 records</strong> and <strong>10 columns</strong>, each representing a physicochemical variable or the water potability label.</p>
+<p>This dataset simulates samples from various water sources and aims to represent diverse water quality scenarios, based on parameters defined by regulatory agencies such as the <strong>WHO (World Health Organization)</strong> and the <strong>EPA (United States Environmental Protection Agency)</strong>.</p>
+<hr />
+<h3 id="column-description">Column Description</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Column</th>
+<th>Unit</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>ph</code></td>
+<td>—</td>
+<td>Measure of the acidity or alkalinity of water (scale from 0 to 14).</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>Hardness</code></td>
+<td>mg/L</td>
+<td>Water's ability to precipitate soap, related to the presence of calcium and magnesium.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>Solids</code></td>
+<td>ppm</td>
+<td>Total dissolved solids. High concentration affects water taste and color.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>Chloramines</code></td>
+<td>ppm</td>
+<td>Concentration of chloramines, common disinfectants in public water systems.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>Sulfate</code></td>
+<td>mg/L</td>
+<td>Amount of dissolved sulfate, naturally present in soils and rocks.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>Conductivity</code></td>
+<td>µS/cm</td>
+<td>Electrical conductivity of water, related to the amount of dissolved ions.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>Organic_carbon</code></td>
+<td>ppm</td>
+<td>Amount of organic carbon, from natural or synthetic organic matter.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>Trihalomethanes</code></td>
+<td>µg/L</td>
+<td>Byproducts of water chlorination, potentially toxic at high concentrations.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>Turbidity</code></td>
+<td>NTU</td>
+<td>Degree of water cloudiness caused by suspended particles.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>Potability</code></td>
+<td>Binary</td>
+<td><strong>Target variable</strong>. Indicates whether the water is potable (<code>1</code>) or not potable (<code>0</code>).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="notes-on-data-collection">Notes on Data Collection</h3>
+<ul>
+<li>The dataset does not include geographic or temporal identifiers, indicating that the data was either <strong>anonymized or simulated</strong> for academic or benchmarking purposes.</li>
+<li>Variable units are standardized according to technical specifications:</li>
+<li><strong>ppm</strong> (parts per million)</li>
+<li><strong>mg/L</strong> (milligrams per liter)</li>
+<li><strong>µg/L</strong> (micrograms per liter)</li>
+<li><strong>µS/cm</strong> (microsiemens per centimeter)</li>
+<li><strong>NTU</strong> (Nephelometric Turbidity Unit)</li>
+<li>Missing values (<code>NaN</code>) are present in some variables and will be handled during preprocessing.</li>
+<li>The target variable (<code>Potability</code>) is <strong>binary</strong>, where:</li>
+<li><code>1</code> → potable water</li>
+<li><code>0</code> → non-potable water</li>
+</ul>
+<hr />
+<h3 id="identified-potential-challenges">Identified Potential Challenges</h3>
+<ul>
+<li><strong>Missing values</strong>: Some variables contain missing data, which requires imputation.</li>
+<li><strong>Class imbalance</strong>: The distribution between potable and non-potable classes may be uneven, affecting model performance.</li>
+</ul>
+<hr />
+<h1 id="part-22-exploratory-data-analysis-eda">Part 2.2) Exploratory Data Analysis (EDA)</h1>
+<h2 id="221-dataset-overview">2.2.1) Dataset Overview</h2>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/2.2.1%20-%20Vis%C3%A3o%20geral%20do%20dataset.png" /></p>
+<ul>
+<li>The dataset contains <strong>3,276 rows</strong> and <strong>10 columns</strong>.</li>
+<li>Each row represents a <strong>water sample</strong> with physicochemical measurements and the corresponding <strong>potability label</strong> (<code>0</code> or <code>1</code>).</li>
+</ul>
+<hr />
+<h3 id="initial-observations">Initial Observations</h3>
+<ul>
+<li><strong>Missing values</strong>: We can already observe <code>NaN</code> values in some columns such as <code>ph</code> and <code>Sulfate</code>, indicating the need for missing data handling during preprocessing.</li>
+<li><strong>Data scale</strong>: Some variables have <strong>values with different orders of magnitude</strong>:</li>
+<li><code>Solids</code>, <code>Conductivity</code>, <code>Sulfate</code> → very high values</li>
+<li><code>Turbidity</code>, <code>ph</code>, <code>Organic_carbon</code> → lower values</li>
+<li>This <strong>emphasizes the importance of scaling/normalization</strong> before modeling.</li>
+<li><strong>Target variable (<code>Potability</code>)</strong>: All 5 displayed samples have a value of <code>0</code>, suggesting that the sample might be <strong>imbalanced</strong> — which will be further investigated in the target distribution analysis.</li>
+</ul>
+<h3 id="partial-conclusion-of-the-eda-substage">Partial Conclusion of the EDA Substage</h3>
+<p>The dataset overview reveals that the data is <strong>well-structured</strong>, but presents <strong>common real-world challenges</strong>, such as missing values, heterogeneous scales, and potential imbalance. These issues will be addressed in the upcoming stages of the predictive modeling pipeline.</p>
+<h2 id="222-checking-data-types-and-missing-values">2.2.2) Checking Data Types and Missing Values</h2>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/2.2.10%20-%20KDE%20plots%20%28densidade%29%20separados%20por%20classe.png" /></p>
+<h3 id="data-structure">Data Structure</h3>
+<ul>
+<li>The dataset has <strong>3,276 rows</strong> and <strong>10 columns</strong>.</li>
+<li>All predictor variables are of type <code>float64</code>.</li>
+<li>The target variable (<code>Potability</code>) is of type <code>int64</code>, with binary values (0 or 1).</li>
+</ul>
+<hr />
+<h3 id="missing-values-analysis">Missing Values Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Missing Values</th>
+<th>Percentage (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ph</code></td>
+<td>491</td>
+<td>14.99% (~15%)</td>
+</tr>
+<tr>
+<td><code>Sulfate</code></td>
+<td>781</td>
+<td>23.85% (high)</td>
+</tr>
+<tr>
+<td><code>Trihalomethanes</code></td>
+<td>162</td>
+<td>4.94% (relatively low)</td>
+</tr>
+<tr>
+<td>Other columns</td>
+<td>0</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="observations">Observations:</h3>
+<ul>
+<li><strong>Three columns</strong> contain missing values: <code>ph</code>, <code>Sulfate</code>, and <code>Trihalomethanes</code>.</li>
+<li>Missing data is <strong>concentrated in physicochemical attributes</strong>, possibly due to sensor failures or unperformed measurements.</li>
+<li>Columns such as <code>Hardness</code>, <code>Solids</code>, <code>Chloramines</code>, <code>Conductivity</code>, <code>Organic_carbon</code>, <code>Turbidity</code>, and <code>Potability</code> are complete.</li>
+</ul>
+<hr />
+<h3 id="implications-for-preprocessing">Implications for Preprocessing</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Suggested Imputation Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ph</code></td>
+<td>Impute using the <strong>median</strong></td>
+</tr>
+<tr>
+<td><code>Sulfate</code></td>
+<td>Impute using the <strong>median</strong></td>
+</tr>
+<tr>
+<td><code>Trihalomethanes</code></td>
+<td>Impute using the <strong>median</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 Since the data is continuous and the percentage of missing values does not exceed 25%, <strong>adding values (imputation) is preferable to dropping rows</strong>.</p>
+</blockquote>
+<hr />
+<h3 id="insights-from-the-eda-substage">Insights from the EDA Substage</h3>
+<p>The missing values analysis shows that the dataset is <strong>mostly complete</strong>, but requires special attention to three columns with missing data. This issue will be addressed in the <strong>data preprocessing stage</strong>, ensuring dataset consistency before modeling.</p>
+<hr />
+<h2 id="223-missing-values-visualization">2.2.3) Missing Values Visualization</h2>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/2.2.3%20-%20Visualiza%C3%A7%C3%A3o%20de%20valores%20ausentes.png" /></p>
+<p>The image above, generated using the function <code>missingno.matrix(df)</code>, provides a <strong>graphical visualization of missing data patterns</strong> in the dataset.</p>
+<hr />
+<h3 id="visual-interpretation">Visual Interpretation</h3>
+<ul>
+<li>Columns with <strong>white lines</strong> represent <strong>missing values</strong>.</li>
+<li>Columns with <strong>solid black fill</strong> contain no missing values.</li>
+<li>Three columns have missing data:</li>
+<li><code>ph</code> (column 0)</li>
+<li><code>Sulfate</code> (column 4)</li>
+<li><code>Trihalomethanes</code> (column 8)</li>
+</ul>
+<hr />
+<h3 id="confirmation-with-numerical-data">Confirmation with Numerical Data</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Missing Values</th>
+<th>% of Total (3,276)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ph</code></td>
+<td>491</td>
+<td>14.99%</td>
+</tr>
+<tr>
+<td><code>Sulfate</code></td>
+<td>781</td>
+<td>23.85%</td>
+</tr>
+<tr>
+<td><code>Trihalomethanes</code></td>
+<td>162</td>
+<td>4.94%</td>
+</tr>
+<tr>
+<td>Other columns</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-insights">Key Insights</h3>
+<ul>
+<li><strong>No apparent visual correlation</strong> between missing values across variables: each sample seems to have isolated gaps (not clustered).</li>
+<li>Columns <code>Hardness</code>, <code>Solids</code>, <code>Chloramines</code>, <code>Conductivity</code>, <code>Organic_carbon</code>, <code>Turbidity</code>, and <code>Potability</code> are <strong>complete</strong> (100% of values present).</li>
+<li>The missing data is <strong>randomly distributed</strong> across rows, which <strong>suggests MCAR (Missing Completely At Random)</strong> — meaning that the missingness is not dependent on observed data.</li>
+</ul>
+<hr />
+<h3 id="recommended-handling-strategies">🛠️ Recommended Handling Strategies</h3>
+<blockquote>
+<p>Removing entire rows is not recommended, as it would result in the loss of up to <strong>23.85%</strong> of the dataset, which would harm model learning.</p>
+</blockquote>
+<hr />
+<h3 id="insights-from-the-eda-substage_1">Insights from the EDA Substage</h3>
+<p>The visualization confirms the previous diagnosis: the dataset contains <strong>missing values located in three specific columns</strong>.
+Since the missing data is sparse and relatively low in two variables, and moderate in <code>Sulfate</code>, <strong>median imputation</strong> will be applied during preprocessing to preserve data volume and integrity.</p>
+<hr />
+<h2 id="224-descriptive-statistics">2.2.4) Descriptive Statistics</h2>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/2.2.4%20-%20Estat%C3%ADsticas%20Descritivas.png" /></p>
+<p>The table above summarizes the main statistics of central tendency, dispersion, and range for each continuous variable in the dataset.</p>
+<hr />
+<h3 id="insights-from-the-eda-substage_2">Insights from the EDA Substage</h3>
+<p>The descriptive statistics confirm the <strong>need to handle</strong> <strong>missing values</strong>.
+Understanding the distribution and limits of variables also helps guide decisions on <strong>feature engineering</strong> and attribute selection in the modeling pipeline.</p>
+<hr />
+<h2 id="225-target-variable-distribution">2.2.5) Target Variable Distribution</h2>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/2.2.5%20-%20Distribui%C3%A7%C3%A3o%20da%20vari%C3%A1vel%20alvo.png" /></p>
+<p>The target variable <code>Potability</code> indicates whether the water is <strong>potable (1)</strong> or <strong>not potable (0)</strong>.</p>
+<hr />
+<h3 id="graph-observations">Graph Observations</h3>
+<ul>
+<li>The distribution is <strong>asymmetric</strong>:</li>
+<li>Class <code>0</code> (Not Potable): approximately <strong>2,000 samples</strong></li>
+<li>Class <code>1</code> (Potable): approximately <strong>1,200 samples</strong></li>
+</ul>
+<h4 id="approximate-proportions">Approximate Proportions:</h4>
+<ul>
+<li>Class 0 (Not Potable): ~61%</li>
+<li>Class 1 (Potable): ~39%</li>
+</ul>
+<hr />
+<h3 id="implications-for-modeling">Implications for Modeling</h3>
+<table>
+<thead>
+<tr>
+<th>Impact</th>
+<th>Consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Imbalanced classes</td>
+<td>Models tend to favor the majority class</td>
+</tr>
+<tr>
+<td>Accuracy can be misleading</td>
+<td>May appear high even with poor performance on the minority class</td>
+</tr>
+<tr>
+<td>F1-score and AUC more relevant</td>
+<td>Metrics like F1, Recall, and ROC AUC should be prioritized</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="recommended-strategies">Recommended Strategies</h3>
+<ol>
+<li><strong>Balancing with SMOTE (Synthetic Minority Over-sampling Technique)</strong></li>
+<li>Generates synthetic samples of the minority class</li>
+<li>Preserves the full dataset and improves generalization</li>
+<li>
+<p>Ideal before training the model</p>
+</li>
+<li>
+<p><strong>Additional alternatives (if needed):</strong></p>
+</li>
+<li>Use <strong>Class Weights</strong> in models like <code>LogisticRegression</code>, <code>RandomForestClassifier</code>, and <code>XGBoost</code></li>
+</ol>
+<hr />
+<h3 id="insights-from-the-eda-substage_3">Insights from the EDA Substage</h3>
+<p>The visualization confirms the <strong>need to handle class imbalance</strong>.
+To ensure that the model learns fairly from both classes, the use of <strong>SMOTE (Synthetic Minority Over-sampling Technique)</strong> will be essential in the upcoming preprocessing and modeling stages.</p>
+<hr />
+<h2 id="226-percentage-proportion-of-the-target-class">2.2.6) Percentage Proportion of the Target Class</h2>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/2.2.6%20-%20Propor%C3%A7%C3%A3o%20percentual%20da%20classe%20alvo.png" /></p>
+<p>The <code>Potability</code> variable represents the model's <strong>target class</strong>, indicating whether a water sample is:
+- <code>0</code>: <strong>Not Potable</strong>
+- <code>1</code>: <strong>Potable</strong></p>
+<hr />
+<h3 id="percentage-distribution">Percentage Distribution</h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+<th>Proportion (%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Not Potable</td>
+<td>60.99%</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Potable</td>
+<td>39.01%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="interpretation">Interpretation</h3>
+<ul>
+<li>There is a <strong>moderate imbalance</strong> between the classes.</li>
+<li>The majority class (<code>0</code>, not potable) accounts for approximately <strong>61%</strong> of the samples, while the minority class (<code>1</code>, potable) represents about <strong>39%</strong>.</li>
+<li>Although not an extreme imbalance, it <strong>can negatively affect model performance</strong>, especially in recall and F1-score for the minority class (<code>1</code> – potable water).</li>
+</ul>
+<hr />
+<h3 id="recommended-actions">Recommended Actions</h3>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SMOTE</strong></td>
+<td>Synthetically increase the minority class</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="insights-from-the-eda-substage_4">Insights from the EDA Substage</h3>
+<p>The analysis confirms the class imbalance, with a predominance of non-potable samples.
+The use of <strong>class rebalancing techniques</strong> is recommended to avoid prediction bias and ensure a fair and robust model for detecting <strong>potable water</strong>, which is the class of greatest social and public health interest.</p>
+<hr />
+<h2 id="227-histograms-to-understand-variable-distribution">2.2.7) Histograms to Understand Variable Distribution</h2>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/2.2.7%20-%20Histogramas%20para%20entender%20a%20distribui%C3%A7%C3%A3o%20das%20vari%C3%A1veis.png" /></p>
+<p>The histograms provide a clear view of the <strong>statistical distribution of continuous variables</strong>.
+This step is essential to guide decisions on normalization, transformation, and model selection.</p>
+<hr />
+<h3 id="general-observations">General Observations</h3>
+<ul>
+<li>Most variables show an <strong>approximately normal or symmetric distribution</strong>.</li>
+<li>The <strong>absence of significant skewness</strong> indicates that many algorithms, such as Logistic Regression, KNN, and Random Forest, should perform well without additional transformations.</li>
+<li>Variables do not appear to have many extreme outliers, reducing the need for aggressive treatments.</li>
+</ul>
+<hr />
+<h3 id="individual-analysis">Individual Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Observation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ph</code></td>
+<td>Slightly symmetric distribution centered around 7</td>
+</tr>
+<tr>
+<td><code>Hardness</code></td>
+<td>Symmetric and well-behaved distribution</td>
+</tr>
+<tr>
+<td><code>Solids</code></td>
+<td>Symmetric with a slight right tail (mild skew)</td>
+</tr>
+<tr>
+<td><code>Chloramines</code></td>
+<td>Slightly left-skewed, but still acceptable</td>
+</tr>
+<tr>
+<td><code>Sulfate</code></td>
+<td>Approximates normal, with mild concentration to the right</td>
+</tr>
+<tr>
+<td><code>Conductivity</code></td>
+<td>Slight right skew, no major anomalies</td>
+</tr>
+<tr>
+<td><code>Organic_carbon</code></td>
+<td>Slightly skewed, centered around 14</td>
+</tr>
+<tr>
+<td><code>Trihalomethanes</code></td>
+<td>Reasonably symmetric distribution</td>
+</tr>
+<tr>
+<td><code>Turbidity</code></td>
+<td>Slight concentration between 3 and 4, similar to normal shape</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="insights-from-the-eda-substage_5">Insights from the EDA Substage</h3>
+<p>The variable distributions are suitable for direct use in Machine Learning models.
+With <strong>simple standardization</strong>, the data will be ready for algorithms that assume normality.
+This analysis reinforces that the dataset is <strong>statistically stable and well-behaved</strong>, with minimal need for complex transformations.</p>
+<hr />
+<h2 id="228-boxplots-to-detect-outliers">2.2.8) Boxplots to Detect Outliers</h2>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/2.2.8%20-%20Boxplots%20para%20detectar%20outliers.png" /></p>
+<p>In this step, boxplots were used to <strong>compare the distribution of continuous variables</strong> across the target variable <code>Potability</code> (0 = Not Potable, 1 = Potable) and to <strong>identify outliers</strong>.</p>
+<hr />
+<h3 id="observations-by-variable">Observations by Variable</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Outliers?</th>
+<th>Difference Between Classes?</th>
+<th>Observations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ph</code></td>
+<td>Yes</td>
+<td>Slight</td>
+<td>Outliers on both sides; potable samples tend to have slightly higher pH.</td>
+</tr>
+<tr>
+<td><code>Hardness</code></td>
+<td>Yes</td>
+<td>Very slight</td>
+<td>Similar distributions; some high outliers.</td>
+</tr>
+<tr>
+<td><code>Solids</code></td>
+<td>Yes</td>
+<td>Virtually none</td>
+<td>Very high outliers; similar distribution between classes.</td>
+</tr>
+<tr>
+<td><code>Chloramines</code></td>
+<td>Yes</td>
+<td>Slight</td>
+<td>Potable samples show slightly higher average values.</td>
+</tr>
+<tr>
+<td><code>Sulfate</code></td>
+<td>Yes</td>
+<td>Slight</td>
+<td>Potable water tends to have a lower mean and greater spread.</td>
+</tr>
+<tr>
+<td><code>Conductivity</code></td>
+<td>Yes</td>
+<td>Slight</td>
+<td>Slight increase in the median for potable samples.</td>
+</tr>
+<tr>
+<td><code>Organic_carbon</code></td>
+<td>Yes</td>
+<td>None</td>
+<td>Nearly identical distributions.</td>
+</tr>
+<tr>
+<td><code>Trihalomethanes</code></td>
+<td>Yes</td>
+<td>None</td>
+<td>Outliers in both classes; no apparent difference.</td>
+</tr>
+<tr>
+<td><code>Turbidity</code></td>
+<td>Yes</td>
+<td>Slight</td>
+<td>Slight median increase in potable samples.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="about-the-outliers">About the Outliers</h3>
+<ul>
+<li>All variables present <strong>visible outliers</strong>.</li>
+<li>Most outliers are <strong>above the upper limit (Q3 + 1.5 * IQR)</strong>.</li>
+<li>The outliers are not extreme enough to compromise modeling, but it is worth considering:</li>
+<li><strong>Keeping the outliers</strong>, if plausible (especially for environmental variables).</li>
+<li><strong>Robust transformations</strong>, such as <code>RobustScaler</code>, if using sensitive models.</li>
+</ul>
+<hr />
+<h3 id="insights-from-the-eda-substage_6">Insights from the EDA Substage</h3>
+<p>The boxplot analysis shows that the dataset contains <strong>outliers in all variables</strong>, but <strong>without severe impact on class separation</strong>.
+Differences between classes are <strong>subtle</strong>, meaning the model will need to <strong>combine multiple variables</strong> to achieve good performance — reinforcing the value of <strong>non-linear models</strong> such as <strong>Random Forest</strong> or <strong>XGBoost</strong>.</p>
+<hr />
+<h2 id="229-correlation-map-between-variables">2.2.9) Correlation Map Between Variables</h2>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/2.2.9%20-%20Mapa%20de%20correla%C3%A7%C3%A3o%20entre%20vari%C3%A1veis.png" /></p>
+<p>The heatmap shown displays <strong>Pearson correlation coefficients</strong> between all variables in the dataset, including the target variable <code>Potability</code>.</p>
+<hr />
+<h3 id="general-observations_1">General Observations</h3>
+<ul>
+<li>Most correlations are centered around <strong>0</strong>, indicating that variables are <strong>weakly correlated</strong> with one another.</li>
+<li>This is advantageous for tree-based models (like Random Forest and XGBoost), which are not sensitive to multicollinearity.</li>
+</ul>
+<hr />
+<h3 id="correlation-with-the-target-variable-potability">Correlation with the Target Variable (<code>Potability</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Correlation with <code>Potability</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Solids</code></td>
+<td><strong>+0.03</strong></td>
+</tr>
+<tr>
+<td><code>Chloramines</code></td>
+<td>+0.02</td>
+</tr>
+<tr>
+<td><code>Trihalomethanes</code></td>
+<td>+0.01</td>
+</tr>
+<tr>
+<td><code>Hardness</code></td>
+<td>-0.01</td>
+</tr>
+<tr>
+<td><code>Sulfate</code></td>
+<td>-0.02</td>
+</tr>
+<tr>
+<td><code>Conductivity</code></td>
+<td>-0.01</td>
+</tr>
+<tr>
+<td><code>Organic_carbon</code></td>
+<td>-0.03</td>
+</tr>
+<tr>
+<td><code>Turbidity</code></td>
+<td>+0.01</td>
+</tr>
+<tr>
+<td><code>ph</code></td>
+<td>≈ 0.00</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notes:</strong>
+- No variable shows strong correlation with the target. This suggests:
+  - The <strong>relationship with potability is likely non-linear</strong>;
+  - Modeling should consider <strong>combinations and interactions</strong> between variables to achieve good predictive performance.</p>
+<hr />
+<h3 id="correlation-between-predictor-variables">Correlation Between Predictor Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Variable Pair</th>
+<th>Correlation</th>
+<th>Observation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Sulfate</code> &amp; <code>Solids</code></td>
+<td><strong>-0.17</strong></td>
+<td>Mild negative correlation</td>
+</tr>
+<tr>
+<td><code>ph</code> &amp; <code>Solids</code></td>
+<td>-0.09</td>
+<td>Weak negative correlation</td>
+</tr>
+<tr>
+<td><code>ph</code> &amp; <code>Hardness</code></td>
+<td>+0.08</td>
+<td>Weak positive correlation</td>
+</tr>
+<tr>
+<td>Other pairs</td>
+<td>~0.00 to ±0.05</td>
+<td>Negligible correlation</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notes:</strong>
+There is no evidence of multicollinearity, and all variables can be kept in the model without the need for removal due to redundancy.</p>
+<hr />
+<h3 id="implications-for-modeling_1">Implications for Modeling</h3>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Non-linear models</strong></td>
+<td>Data suggests low linearity with the target variable</td>
+</tr>
+<tr>
+<td><strong>Feature engineering</strong></td>
+<td>Interactions can improve model performance</td>
+</tr>
+<tr>
+<td><strong>No strong collinearity</strong></td>
+<td>All variables can be used as input</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="insights-from-the-eda-substage_7">Insights from the EDA Substage</h3>
+<p>The correlation map shows that the dataset is <strong>statistically stable</strong>, with no problematic collinearity, but also <strong>no variables strongly correlated with water potability</strong>.
+This reinforces the importance of using <strong>non-linear and robust models</strong>, as well as combining variables during feature engineering.</p>
+<hr />
+<h2 id="2210-kde-plots-density-by-class">2.2.10) KDE Plots (Density) by Class</h2>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/2.2.10%20-%20KDE%20plots%20%28densidade%29%20separados%20por%20classe.png" /></p>
+<p>In this step, <strong>Kernel Density Estimation (KDE)</strong> plots were used to <strong>visually compare the distribution of continuous variables</strong> between the two classes of the target variable <code>Potability</code>:
+- <strong>Potable (<code>1</code>)</strong> – blue line
+- <strong>Not Potable (<code>0</code>)</strong> – orange line</p>
+<hr />
+<h3 id="variable-by-variable-analysis">Variable-by-Variable Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Difference Between Classes?</th>
+<th>Relevant Observations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ph</code></td>
+<td>Slight</td>
+<td>Potable water tends to have a pH closer to 7. Slight visible deviation.</td>
+</tr>
+<tr>
+<td><code>Hardness</code></td>
+<td>Very slight</td>
+<td>Almost overlapping distributions.</td>
+</tr>
+<tr>
+<td><code>Solids</code></td>
+<td>None</td>
+<td>Nearly identical curves.</td>
+</tr>
+<tr>
+<td><code>Chloramines</code></td>
+<td>Slight</td>
+<td>Potable water shows a slightly right-shifted distribution.</td>
+</tr>
+<tr>
+<td><code>Sulfate</code></td>
+<td>Slight</td>
+<td>Potable water values are slightly more spread.</td>
+</tr>
+<tr>
+<td><code>Conductivity</code></td>
+<td>Slight</td>
+<td>Potable class leans slightly to the right (higher average conductivity).</td>
+</tr>
+<tr>
+<td><code>Organic_carbon</code></td>
+<td>Very slight</td>
+<td>Potable class distribution is more concentrated around the mean.</td>
+</tr>
+<tr>
+<td><code>Trihalomethanes</code></td>
+<td>None</td>
+<td>Distributions are nearly identical.</td>
+</tr>
+<tr>
+<td><code>Turbidity</code></td>
+<td>Very slight</td>
+<td>Potable water slightly more concentrated between 3.5 and 4.5 NTU.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="general-interpretation">General Interpretation</h3>
+<ul>
+<li>The variables <strong>individually do not provide strong class separability</strong>.</li>
+<li>However, small differences combined across multiple variables may help a non-linear model to <strong>identify effective decision boundaries</strong>.</li>
+<li><strong>Similar distributions</strong> reinforce that this is a <strong>non-trivial problem</strong>, requiring algorithms capable of capturing complex patterns.</li>
+</ul>
+<hr />
+<h3 id="modeling-implications">Modeling Implications</h3>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ensemble-based models</strong></td>
+<td>Random Forest or XGBoost can capture interactions between variables</td>
+</tr>
+<tr>
+<td><strong>Feature engineering</strong></td>
+<td>Creating or crossing variables may reveal hidden patterns</td>
+</tr>
+<tr>
+<td><strong>Feature selection techniques</strong></td>
+<td>Evaluate combinations with higher discriminative power</td>
+</tr>
+<tr>
+<td><strong>Use of PCA (optional)</strong></td>
+<td>May assist in dimensionality reduction and visualization of potential clusters</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="insights-da-subetapa-do-eda">Insights da subetapa do EDA</h3>
+<p>Os KDE plots confirmam que as variáveis <strong>não são fortemente discriminatórias de forma isolada</strong>, mas <strong>podem ser valiosas quando combinadas</strong>. A modelagem deve explorar <strong>relações multivariadas</strong> e aplicar algoritmos capazes de <strong>captar interações não lineares</strong>.</p>
+<hr />
+<h3 id="insights-from-the-eda-substage_8">Insights from the EDA Substage</h3>
+<p>The KDE plots confirm that the variables <strong>are not strongly discriminatory in isolation</strong>, but <strong>can be valuable when combined</strong>.
+Modeling should explore <strong>multivariate relationships</strong> and apply algorithms capable of <strong>capturing non-linear interactions</strong>.</p>
+<hr />
+<h1 id="part-3-data-preparation">Part 3) Data Preparation</h1>
+<h3 id="31-handling-missing-values">3.1) Handling Missing Values</h3>
+<p>The first step in data preparation involved identifying and handling missing values in the dataset.
+The presence of NaN values can negatively impact machine learning model performance and distort statistical analyses and metrics.
+An initial check for missing values per column was performed using the command <code>df.isnull().sum()</code>.</p>
+<p>To address this issue, <strong>median imputation</strong> was applied to each numerical column using the method <code>df.fillna(df.median(), inplace=True)</code>.
+This approach is robust against outliers and helps preserve the overall data distribution.
+After imputation, it was verified that no missing values remained in the dataset.</p>
+<h3 id="32-splitting-the-data-into-training-and-testing-sets">3.2) Splitting the Data into Training and Testing Sets</h3>
+<p>With the dataset now complete, the data was split into independent variables (X) and the target variable (y), where the target is the <code>Potability</code> column, indicating whether the water is potable (1) or not (0).</p>
+<p>The <code>train_test_split</code> function from the sklearn library was then used to divide the data into training (80%) and testing (20%) sets.
+The parameter <code>stratify=y</code> was used to preserve the original class proportions (potable vs. non-potable) in both sets, ensuring a representative split.
+Additionally, a seed (<code>random_state=42</code>) was set for reproducibility.</p>
+<h3 id="33-applying-smote">3.3) Applying SMOTE</h3>
+<p>Due to the imbalance in the target variable — that is, an unequal distribution between classes — the <strong>SMOTE (Synthetic Minority Over-sampling Technique)</strong> method was applied to generate synthetic samples of the minority class in the training set.</p>
+<p>Using SMOTE allows for training more robust models, minimizing bias toward the majority class and improving performance on imbalance-sensitive metrics such as <strong>recall</strong> and <strong>F1-score</strong>.
+SMOTE was applied only to the training data (<code>X_train</code>, <code>y_train</code>) to avoid data leakage and preserve the integrity of the test evaluation.</p>
+<hr />
+<h2 id="41-rationale-for-model-testing-random-forest-and-xgboost-with-optuna-optimization">4.1) Rationale for Model Testing: Random Forest and XGBoost with Optuna Optimization</h2>
+<hr />
+<h3 id="why-random-forest-and-xgboost">Why Random Forest and XGBoost?</h3>
+<h3 id="random-forest-classifier">Random Forest Classifier</h3>
+<ul>
+<li>A <strong>robust model</strong> based on bagging (bootstrap + decision trees).</li>
+<li>Ideal for data with:</li>
+<li>Outliers (as seen in the boxplots)</li>
+<li>Weak correlations between predictors and the target (as seen in the heatmap)</li>
+<li>Poorly discriminative class distributions (as seen in the KDE plots)</li>
+<li>Performs well even without aggressive normalization.</li>
+<li><strong>Low risk of overfitting</strong> when properly tuned (number of trees, depth, etc.).</li>
+</ul>
+<h3 id="xgboost-classifier">XGBoost Classifier</h3>
+<ul>
+<li>A gradient boosting model that is <strong>highly efficient and accurate</strong>.</li>
+<li>Capable of capturing complex patterns and <strong>non-linear interactions between variables</strong>.</li>
+<li>Works well on <strong>tabular data with imbalanced classes</strong> (as in this project).</li>
+<li>Native support for missing value handling and L1/L2 regularization.</li>
+<li>Often outperforms other tree-based models in structured data benchmarks.</li>
+</ul>
+<hr />
+<h3 id="why-use-optuna">Why Use <strong>Optuna</strong>?</h3>
+<ul>
+<li><strong>Optuna</strong> is a modern hyperparameter optimization library using <strong>intelligent Bayesian search</strong>.</li>
+<li>Unlike exhaustive search (GridSearch) or random search (RandomSearch), Optuna:</li>
+<li>Reduces computational time.</li>
+<li>Focuses on the <strong>most promising regions</strong> of the search space.</li>
+<li>
+<p>Works well even with limited computational resources.</p>
+</li>
+<li>
+<p>For this project, the complexity of tuning hyperparameters for Random Forest and XGBoost makes <strong>Optuna essential to achieve the best possible performance</strong>.</p>
+</li>
+</ul>
+<hr />
+<h3 id="selected-metric-accuracy">Selected Metric: Accuracy</h3>
+<ul>
+<li><strong>Accuracy</strong> is a useful initial metric for evaluating models in binary classification problems.</li>
+<li>Justifications:</li>
+<li>The class imbalance is <strong>moderate</strong> (≈ 61% vs 39%), not severe.</li>
+<li>The metric is <strong>simple to interpret and compare</strong>.</li>
+<li>It served as a baseline to <strong>compare raw performance between models using the best hyperparameters</strong>.</li>
+</ul>
+<hr />
+<h3 id="observations_1">Observations:</h3>
+<p>The combined choice of <strong>Random Forest and XGBoost</strong> models, both optimized with <strong>Optuna</strong> and evaluated using <strong>accuracy</strong>, is justified by the problem context:
+- Continuous data with low direct correlation to the target variable;
+- Subtle differences between class distributions;
+- Need for generalization with strong predictive capacity;
+- Efficient and automated hyperparameter search using Optuna.</p>
+<p>This approach balances <strong>performance, robustness, and interpretability</strong>, making it highly suitable for the <strong>water potability prediction</strong> challenge.</p>
+<hr />
+<h3 id="42-hyperparameter-optimization-with-optuna">4.2) Hyperparameter Optimization with Optuna</h3>
+<p>To ensure the best possible performance of each algorithm, the Optuna library was used for efficient hyperparameter search. Each algorithm had its own objective function defined, with return values based on accuracy over the test set:</p>
+<ul>
+<li>
+<p>Random Forest: search over <code>n_estimators</code>, <code>max_depth</code>, <code>min_samples_split</code>;</p>
+</li>
+<li>
+<p>XGBoost: search over <code>n_estimators</code>, <code>max_depth</code>, <code>learning_rate</code>;</p>
+</li>
+</ul>
+<p>Each study was optimized for 100 iterations (<code>n_trials=100</code>), and the best sets of hyperparameters were selected for final model training.</p>
+<hr />
+<h1 id="part-5-model-evaluation">Part 5) Model Evaluation</h1>
+<h3 id="51-model-evaluation">5.1) Model Evaluation</h3>
+<p><img alt="Dataset Overview" src="../assets/images/crisp_dm/5.1%20-%20Avalia%C3%A7%C3%A3o%20dos%20modelos.png" /></p>
+<p>After optimization, the Random Forest and XGBoost models were retrained using the best parameters found. Both were evaluated using the following metrics:</p>
+<ul>
+<li>Accuracy</li>
+<li>Precision, Recall, and F1-Score per class</li>
+<li>Weighted and macro averages for overall comparison</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Accuracy</th>
+<th>Precision (Class 1)</th>
+<th>Recall (Class 1)</th>
+<th>F1-Score (Class 1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Random Forest</td>
+<td><strong>0.67</strong></td>
+<td>0.59</td>
+<td>0.52</td>
+<td>0.55</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>0.66</td>
+<td>0.57</td>
+<td>0.54</td>
+<td>0.56</td>
+</tr>
+</tbody>
+</table>
+<p>It is observed that the Random Forest model achieved higher overall accuracy (0.67) and better precision when classifying samples as potable.
+Although XGBoost achieved a slightly better recall for class 1, Random Forest strikes a better balance between precision and recall, resulting in a competitive F1-Score.</p>
+<hr />
+<h3 id="52-best-model-selection">5.2) Best Model Selection</h3>
+<p>Based on performance comparison, the <strong>Random Forest model optimized with Optuna</strong> was chosen as the final model for this project.
+Despite the close results, its greater ability to generalize to the minority class makes it more suitable for the project’s goal: to identify potable water samples with greater confidence.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "toc.integrate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
