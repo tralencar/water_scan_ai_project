@@ -1,9 +1,9 @@
 # site_name: "Water Scan AI Project to Identify Water Quality.
 
-site_description: "Documentação do projeto de Machine Learning Engineering"
+site_description: "Water Scan AI Project to Identify Water Quality"
 site_author: "tralencar"
-repo_name: "water_scan_ai"
-repo_url: "https://github.com/tralencar/water_scan_ai"
+repo_name: "water_scan_ai_project"
+repo_url: "https://github.com/tralencar/water_scan_ai_project"
 
 plugins:
   - search
@@ -11,7 +11,7 @@ plugins:
       default_handler: python
 
 site_name: Water Scan AI
-site_url: https://tralencar.github.io/water_scan_ai/
+site_url: https://tralencar.github.io/water_scan_ai_project/
 theme:
   name: material
   palette:
