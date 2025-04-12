@@ -1,0 +1,43 @@
+# site_name: "Water Scan AI Project to Identify Water Quality.
+
+site_description: "Documentação do projeto de Machine Learning Engineering"
+site_author: "tralencar"
+repo_name: "water_scan_ai"
+repo_url: "https://github.com/tralencar/water_scan_ai"
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+
+site_name: Water Scan AI
+site_url: https://tralencar.github.io/water_scan_ai/
+theme:
+  name: material
+  palette:
+    primary: orange
+    scheme: slate
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - toc.integrate
+  language: pt
+
+nav:
+  - 🏠 Home: index.md
+  - ⚙️ Installation: installation.md
+  - 🚀 Project Usage: usage.md
+  - 📂 Project Structure: project_structure.md
+  - 🧠 Methodology Used (CRISP-DM): crisp_dm_stages.md
+  - 📦 Modules:
+      - 📦📑 Overview: modules_index.md
+      - 📦🏗️ Main: module_1.md
+      - 📦📝 data_pipeline: module_2.md
+      - 📦📜 mlflow_logger: module_3.md
+      - 📦🔄 model_registry: module_4.md
+      - 📦⚡ model_trainer: module_5.md
+      - 📦🌐 trainer_factory: module_6.md
+  - 🤝 Contribution: contributing.md
+  - 🧪 Tests: tests.md
+  - 🕰️ Version History: changelog.md
