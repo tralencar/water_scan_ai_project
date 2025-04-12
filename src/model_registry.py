@@ -15,7 +15,7 @@ class Singleton(type):
 
     def __call__(cls, *args, **kwargs):
         """
-        Checks if an instance already exists.  
+        Checks if an instance already exists.
         If not, creates a new one and stores it in the _instances dictionary.
 
         Returns:
