@@ -1,0 +1,19 @@
+/* docs/style/extra.css */
+.md-header, .md-tabs {
+    background-color: #007F7B !important;
+  }
+
+  .md-nav__link,
+  .md-nav__title {
+    color: #FFFFFF !important;
+  }
+
+/* Link style (custom green) */
+.md-typeset a {
+  color: #26D1C2; /* Light green with great contrast  */
+}
+
+/* Hover style (when hovering) */
+.md-typeset a:hover {
+  color: #4BEADB; /* A more vibrant hover  */
+}
